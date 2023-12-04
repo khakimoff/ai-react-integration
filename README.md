@@ -24,4 +24,3 @@ This is an example integration of React with OpenAI, showcasing the power of com
     ```bash
     npm install
     npm run dev
-![Uploading Снимок экрана 2023-12-05 в 01.12.38.png…]()
