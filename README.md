@@ -24,5 +24,6 @@ This is an example integration of React with OpenAI, showcasing the power of com
     ```bash
     npm install
     npm run dev
-
+    
+## Page
 ![example](src/images/photo.png)
