@@ -7,16 +7,18 @@ Copy code
 This is an example integration of React with OpenAI, showcasing the power of combining these technologies.
 
 ## Steps
+
 1. **Clone the Repository:**
-```bash
+   ```bash
    git clone https://github.com/khakimoff/ai-react-integration.git
    cd ai-react-integration
 
 2. **Create OpenAI Account:**
-```bash
-   Create an account on OpenAI.
-   Navigate to the API keys section and generate a new API key.
-  
+
+
+Create an account on OpenAI.
+Navigate to the API keys section and generate a new API key.
+Configure API Key:
 
 Create a .env file in the root directory.
 Insert the following line in the .env file, replacing YOUR_OPENAI_API_KEY with the generated API key:
