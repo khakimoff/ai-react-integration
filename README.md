@@ -18,7 +18,7 @@ This is an example integration of React with OpenAI, showcasing the power of com
 3. **Create .env:**
     ```bash
     Create a .env file in the root directory
-    Insert the following line in the .env file, set VITE_APP_OPENAI_API_KEY with the generated API key
+    Set in .env VITE_APP_OPENAI_API_KEY with the generated API key
 
 4. **Install and run:**
     ```bash
