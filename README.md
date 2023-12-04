@@ -25,4 +25,4 @@ This is an example integration of React with OpenAI, showcasing the power of com
     npm install
     npm run dev
 
-![](src/images/photo.png)
+![example](src/images/photo.png)
