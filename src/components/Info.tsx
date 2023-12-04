@@ -1,6 +1,6 @@
-import { Typography } from 'antd';
-import bot from '../icons/bot.png';
-import styles from './Info.module.css'
+import { Typography } from "antd";
+import bot from "../icons/bot.png";
+import styles from "./Info.module.css";
 
 export default function Info() {
     const { Title } = Typography;

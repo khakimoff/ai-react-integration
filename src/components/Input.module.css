@@ -14,6 +14,10 @@
   font-size: 16px;
 }
 
+.textArea {
+  padding-right: 40px;
+}
+
 .button {
   position: absolute;
   right: 4px;

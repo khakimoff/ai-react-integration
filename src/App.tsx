@@ -1,15 +1,15 @@
 
 import { useState, ChangeEvent } from "react";
-import { Avatar, List, Typography } from 'antd';
-import shortid from 'shortid';
+import { Avatar, List, Typography } from "antd";
+import shortid from "shortid";
 
 import InputBlock from "./components/Input.js";
 import History from "./components/History.js";
 import Clear from "./components/Clear.js";
-import OpenAIRequestComponent from "./components/OpenAIRequestComponent.js";
+import handleOpenAIRequest from "./components/openAIUtils.js";
 import Info from "./components/Info.js";
-import bot from './icons/bot.png';
-import user from './icons/user.png';
+import bot from "./icons/bot.png";
+import user from "./icons/user.png";
 import "./App.css";
 export interface HistoryItem {
   question: string;
@@ -30,8 +30,8 @@ export default function App() {
 
   const isEmptyChat = !messages.length;
 
-  const handleSubmit = async () => {
-    await OpenAIRequestComponent(input, messages, setMessages, setHistory, setInput, serIsLoadAnswer);
+  const handleSubmit = () => {
+    handleOpenAIRequest(input, messages, setMessages, setHistory, setInput, serIsLoadAnswer);
   };
 
   const selectStory = (userContent: string | number, assistantContent: string | number): void => {
@@ -70,10 +70,10 @@ export default function App() {
             <List
               itemLayout="horizontal"
               dataSource={messages}
-              renderItem={(item, index) => (
+              renderItem={(item) => (
                 <List.Item>
                   <List.Item.Meta
-                    avatar={<Avatar src={item.role === 'user' ? user : bot} />}
+                    avatar={<Avatar src={item.role === "user" ? user : bot} />}
                     title={item.role === "user" ? "You" : "OpenAI"}
                     description={item.content}
                   />
@@ -84,7 +84,7 @@ export default function App() {
         </div>
         <InputBlock
           value={input}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setInput(e.target.value)}
           onClick={input ? handleSubmit : undefined}
           statusAnswer={isLoadAnswer}
         />

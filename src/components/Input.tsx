@@ -2,13 +2,13 @@
 import { ChangeEvent } from "react";
 
 import styles from "./Input.module.css";
-import { Input, Tooltip, Button } from 'antd';
+import { Input, Tooltip, Button } from "antd";
 import { ArrowUpOutlined, LoadingOutlined } from "@ant-design/icons";
 
 interface InputBlock {
   value: string | number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onClick: (() => Promise<void>) | undefined;
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  onClick: (() => void) | undefined;
   statusAnswer: boolean;
 }
 
@@ -21,9 +21,7 @@ export default function InputBlock({ value, onChange, onClick, statusAnswer }: I
         onChange={onChange}
         placeholder="Message OpenAI..."
         autoSize
-        style={{
-          paddingRight: '40px'
-        }}
+        className={styles.textArea}
       />
       <Tooltip title="Send message">
         <Button

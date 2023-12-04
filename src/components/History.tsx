@@ -1,5 +1,5 @@
 
-import { Button } from 'antd';
+import { Button } from "antd";
 import styles from "./History.module.css";
 
 export interface History {

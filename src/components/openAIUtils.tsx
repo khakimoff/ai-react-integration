@@ -2,24 +2,24 @@ import { HistoryItem, MessagesItem } from "../App";
 
 export const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 
-interface OpenAIRequestComponent {
-    input: string | number;
-    messages: [];
-    setMessages: React.Dispatch<React.SetStateAction<MessagesItem[]>>;
-    setHistory: React.Dispatch<React.SetStateAction<HistoryItem[]>>;
-    setInput: React.Dispatch<React.SetStateAction<string | number>>
-    serIsLoadAnswer: React.Dispatch<React.SetStateAction<boolean>>;
-}
+export type OpenAIRequestHandler = (
+    input: string | number,
+    messages: MessagesItem[],
+    setMessages: React.Dispatch<React.SetStateAction<MessagesItem[]>>,
+    setHistory: React.Dispatch<React.SetStateAction<HistoryItem[]>>,
+    setInput: React.Dispatch<React.SetStateAction<string | number>>,
+    setIsLoadingAnswer: React.Dispatch<React.SetStateAction<boolean>>
+) => Promise<void>;
 
-const OpenAIRequestComponent = async ({ input, messages, setMessages, setHistory, setInput, serIsLoadAnswer }: OpenAIRequestComponent) => {
+const handleOpenAIRequest: OpenAIRequestHandler = async (input, messages, setMessages, setHistory, setInput, serIsLoadAnswer) => {
     const prompt = {
         role: "user",
         content: input,
     };
-
     setMessages([...messages, prompt]);
     setInput("");
     serIsLoadAnswer(true);
+
     try {
         const response = await fetch(OPENAI_API_URL, {
             method: "POST",
@@ -52,4 +52,4 @@ const OpenAIRequestComponent = async ({ input, messages, setMessages, setHistory
     }
 };
 
-export default OpenAIRequestComponent;
+export default handleOpenAIRequest;
